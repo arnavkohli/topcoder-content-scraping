@@ -2,7 +2,10 @@
 
 ### Performance:
 
-Total Run Time of script: **~4-5 seconds**
+- Total Run Time of script: **~60 seconds**
+- Scraping URLS: **~5 seconds**
+- Step 1 runtime: **~1 second** *(1 API call)*
+- Step 2 runtime: **~55 seconds** *(multiple API calls)*
 
 ### Technology Stack:
 
