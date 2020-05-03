@@ -27,13 +27,16 @@ Total Run Time of script: **~4-5 seconds**
   - EP URL for multiple products: "https://store.hp.com/us/en/HPServices?&action=pids&catentryId={}&modelId=&langId=-1&storeId=10151&catalogId=10051"
     - In the above, `catentryId` would be populated with product IDs in a single string and `action` would be `pid` to get all their info in JSON format and the request would be sent to retrieve all product data (price as well).
   - EP URL for single product: "https://store.hp.com/us/en/HPServices?&action=dip&catentryId={}&modelId=&langId=-1&storeId=10151&catalogId=10051"
-     - In the above, `catentryId` param would be the product ID and the `action` would be `dip
+     - In the above, `catentryId` param would be the product ID and the `action` would be `dip`
 
 ### Strategy
 
 - Now that I had the API responsible for the data, the only thing left was to get hold of the product IDs and call that API
 - Calling the first URL in a loop by incrementing `start_index` by `50` till no results retrieved and saving the product Ids listed on the page (`50` is the page limit even if we increase the `pageLimit` param to <50)
-- Call the API (multiple products EP) with a list of all the product IDs and retrieve all the data.
+- Case 1: Get all products at once (equivalent to Step 1)
+  - Call the API once and get all products data
+- Case 2: Get products one by one (equivalent to Step 2)
+  - As all product pages request the API with `action` param set to `dip`, the script calls the API once for each product ID and saves the product data
 - Save data in excels.
 
 
