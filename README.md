@@ -22,6 +22,8 @@
 - Options: `--use-random-proxies || --use-proxy=<PROXY_HERE> || --use-https (only use if HTTPS available for proxy; default is HTTP)`
 - Logs would be displayed on the console and 2 new excels with product infos would be created in the same directory
 
+[Screenshot](./screenshot.png)
+
 ### Findings:
 
 - Requesting the page, waiting for it to render, scrolling, clicking `Load More` buttons is a very time consuming task. So I got hold of the URL (using dev tools on Chrome) which was accountable for the all the information on the listing page. It returns data with only the relevant information without any designs, hence rendering is quicker.
