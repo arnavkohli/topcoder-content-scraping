@@ -2,10 +2,10 @@
 
 ### Performance:
 
-- Total Run Time of script: **~60 seconds**
+- Total Run Time of script: **~8 seconds**
 - Scraping URLS: **~5 seconds**
 - Step 1 runtime: **~1 second** *(1 API call for all products)*
-- Step 2 runtime: **~55 seconds** *(multiple API calls for all products)*
+- Step 2 runtime: **~1 second** *(multiple async API calls for all products)*
 
 ### Technology Stack:
 
@@ -19,6 +19,7 @@
 - Activate virtual environment (macOS): `source env/bin/activate`
 - Install dependancies: `pip install requirements.txt`
 - Run file: `python scrape.py`
+- Options: `--use-random-proxies || --use-proxy=<PROXY_HERE> || --use-https (only use if HTTPS available for proxy; default is HTTP)`
 - Logs would be displayed on the console and 2 new excels with product infos would be created in the same directory
 
 ### Findings:
@@ -39,7 +40,7 @@
 - Case 1: Get all products at once (equivalent to Step 1)
   - Call the API once and get all products data
 - Case 2: Get products one by one (equivalent to Step 2)
-  - As all product pages request the API with `action` param set to `dip`, the script calls the API once for each product ID and saves the product data
+  - As all product pages request the API with `action` param set to `dip`, the script calls the API once for each product ID  asynchronously and saves the product data
 - Save data in excels.
 
 
